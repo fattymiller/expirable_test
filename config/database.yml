@@ -1,0 +1,15 @@
+default: &default
+  adapter:  postgresql
+  host:     127.0.0.1
+  encoding: unicode
+  pool:     5
+  database: expirable_test-development
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
