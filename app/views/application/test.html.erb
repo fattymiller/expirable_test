@@ -1,1 +1,9 @@
+<!-- This works -->
 <%= User.accessible_by(Ability.new(User.first), :index).inspect %>
+
+<!-- This doesn't -->
+<%= Company.first.users.accessible_by(Ability.new(User.first)).inspect %>
+
+<!-- Notes -->
+<!-- 1. Works in sqlite3, not postgres. Most likely because Postgres enforces the order of queries in the SQL -->
+<!--   i.e. 'company_users' is a valid FROM selector in the query, it just appears after the initial call to it. Meaning sqlite would have been returning incorrect results. -->
