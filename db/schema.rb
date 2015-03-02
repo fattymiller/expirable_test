@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150226061759) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
+  create_table "applications", force: true do |t|
     t.integer  "owner_company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20150226061759) do
 
   add_index "applications", ["owner_company_id"], name: "index_applications_on_owner_company_id", using: :btree
 
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "company_users", force: :cascade do |t|
+  create_table "company_users", force: true do |t|
     t.integer  "company_id"
     t.integer  "user_id"
     t.string   "acl"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150226061759) do
   add_index "company_users", ["company_id"], name: "index_company_users_on_company_id", using: :btree
   add_index "company_users", ["user_id"], name: "index_company_users_on_user_id", using: :btree
 
-  create_table "invitations", force: :cascade do |t|
+  create_table "invitations", force: true do |t|
     t.integer  "converted_user_id"
     t.datetime "deleted_at"
     t.string   "invitable_type"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150226061759) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: true do |t|
     t.datetime "effective"
     t.datetime "expire"
     t.datetime "created_at"

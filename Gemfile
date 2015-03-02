@@ -15,3 +15,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'cancancan'
 gem 'annotate'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+end

@@ -14,11 +14,11 @@
 
 class CompanyUser < ActiveRecord::Base
   include Expirable
-  
+
   scope :admin, -> { current.where(acl: "admin") }
   scope :manager, -> { current.where(acl: "manager") }
   scope :staff, -> { current.where(acl: "staff") }
-  
+
   belongs_to :company
   belongs_to :user
 end
